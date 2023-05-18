@@ -3,7 +3,7 @@ from Plugins.anime import Anime
 from Plugins.manga import Manga
 from Plugins.nhentai import Nhentai
 from config import bot
-
+from bot import Bot
 try:
     start()
     Anime()
@@ -16,3 +16,6 @@ except Exception as e:
 bot.start()
 
 bot.run_until_disconnected()
+
+
+Bot().run()
