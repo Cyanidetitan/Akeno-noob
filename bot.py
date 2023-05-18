@@ -1,7 +1,13 @@
-app = web.AppRunner(await web_server())
+import asyncio
+from aiohttp import web
 
-        await app.setup()
+async def run_app():
+    app = web.AppRunner(await web_server())
+    await app.setup()
+    bind_address = "0.0.0.0"
+    PORT = 8080  # Replace with the desired port number
+    await web.TCPSite(app, bind_address, PORT).start()
 
-        bind_address = "0.0.0.0"
+asyncio.run(run_app())
+ 
 
-        await web.TCPSite(app, bind_address, PORT).start()
